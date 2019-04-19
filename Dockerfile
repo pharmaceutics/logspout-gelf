@@ -17,7 +17,7 @@ RUN curl -fSL -o logspout.tar.gz "https://github.com/gliderlabs/logspout/archive
     && mv logspout-${LOGSPOUT_VERSION} /go/src/github.com/gliderlabs/logspout
 
 WORKDIR /go/src/github.com/gliderlabs/logspout
-RUN echo 'import ( _ "github.com/micahhausler/logspout-gelf" )' >> /go/src/github.com/gliderlabs/logspout/modules.go
+RUN echo 'import ( _ "github.com/pharmaceutics/logspout-gelf-go" )' >> /go/src/github.com/gliderlabs/logspout/modules.go
 RUN go get -d -v ./...
 RUN go build -v -ldflags "-X main.Version=$(cat VERSION)" -o ./bin/logspout
 
